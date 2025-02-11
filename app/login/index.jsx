@@ -34,7 +34,7 @@ export default function LoginScreen() {
           marginTop:20
         }}>Track your meds, take control of your health. Stay consitent, stay confident</Text>
 
-        <TouchableOpacity style={styles?.button} onPress={()=>router.push('login/signIn')}>
+        <TouchableOpacity style={styles?.button} onPress={()=>router.push('/login/signIn')}>
           <Text style={{
             textAlign:'center',
             fontSize:16,

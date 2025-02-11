@@ -36,7 +36,7 @@ export default function SignIn() {
                 }}>Login</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.buttonCreate} onPress={()=>router.push('login/signUp')}>
+            <TouchableOpacity style={styles.buttonCreate} onPress={()=>router.push('/login/signUp')}>
                 <Text style={{
                     fontSize:17,
                     color:Colors.PRIMARY,
