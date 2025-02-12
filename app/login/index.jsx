@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
-import Colors from '../../constant/Colors'
-import { useRouter } from 'expo-router'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import React from 'react';
+import Colors from '../../constant/Colors';
+import { useRouter } from 'expo-router';
 
 export default function LoginScreen() {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <View>
       <View style={{
@@ -49,8 +49,8 @@ export default function LoginScreen() {
         >Note: By Clicking Continue button, you will agree to our terms and conditions</Text>
       </View>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   image:{
@@ -64,5 +64,5 @@ const styles = StyleSheet.create({
     borderRadius:99,
     marginTop:25
   }
-})
+});
       

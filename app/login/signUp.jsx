@@ -1,9 +1,9 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ToastAndroid } from 'react-native'
-import React, { useState } from 'react'
-import Colors from '../../constant/Colors'
-import { useRouter } from 'expo-router'
-import { auth } from './../../config/FirebaseConfig'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ToastAndroid, Alert } from 'react-native';
+import React, { useState } from 'react';
+import Colors from '../../constant/Colors';
+import { useRouter } from 'expo-router';
+import { auth } from './../../config/FirebaseConfig';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function SignUp() { 
 
@@ -14,7 +14,9 @@ export default function SignUp() {
     
     const OnCreatAccount=()=>{
         if(!email || !password){
-            ToastAndroid.show('Please fill all details', ToastAndroid.BOTTOM)
+            ToastAndroid.show('Please fill all details', ToastAndroid.BOTTOM);
+            Alert.alert('Please enter Email and Password');
+            return ;
         }
 
         createUserWithEmailAndPassword(auth, email, password)
@@ -22,16 +24,18 @@ export default function SignUp() {
             // Signed up 
             const user = userCredential.user;
             console.log(user);
+            router.push('(tabs)');
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode);
             if(errorCode=='auth/email-already-in-use'){
-                ToastAndroid.show('Email already exist', ToastAndroid.BOTTOM)
+                ToastAndroid.show('Email already exist', ToastAndroid.BOTTOM);
+                Alert.alert('Email already exist');
             }
         });
-        }
+    };
 
     return (
         <View style={{ padding:25 }}>
@@ -68,8 +72,8 @@ export default function SignUp() {
                 }}>Already account? Sign In</Text>
             </TouchableOpacity>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     textHeader:{
@@ -109,4 +113,4 @@ const styles = StyleSheet.create({
         borderWidth:1,
         borderColor:Colors.PRIMARY
     }
-})
+});
